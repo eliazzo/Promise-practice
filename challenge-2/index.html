@@ -19,19 +19,37 @@
             return response.json();
           })
       .then((pokeData) => {
-        const displayName = document.createElement("h2");
-        displayName.innerText = pokeData.name;
+        return pokeData.species.url
+        // const displayName = document.createElement("h2");
+        // displayName.innerText = pokeData.name;
 
-        output.append(displayName);
+        // output.append(displayName);
       })
-      .then(fetch("https://pokeapi.co/api/v2/pokemon-species/25/"))
-          .then ((speciesData) => {
-        const displaySpecies = document.createElement("h2");
-        displaySpecies.innerText = speciesData.species;
-
-        output.append(displaySpecies);
-
+      .then((url) => {
+        const res = fetch(url)
+        return res
       })
+      .then((res) => {
+        // console.log(res)
+        return res.json()
+        
+      })
+      .then((pokeData) => {
+        // console.log(pokeData.shape.url)
+        return pokeData.shape.url
+      })
+      .then((url) => {
+        const res = fetch(url)
+        // console.log(res)
+        return res
+      })
+      .then((res) => {
+        return res.json()
+      })
+      .then((data) => {
+        console.log(data)
+      })
+
     </script>
   </body>
 </html>
